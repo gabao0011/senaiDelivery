@@ -15,30 +15,27 @@ class CategoriaSeeder extends Seeder
     {
         Categoria::create([
             'nome' => 'Lanches',
-            'descricao' => 'Lanches Diversos',
+            'descricao' => 'Lanches diversos',
             'ativo' => true,
-            'ordem_exibicao' => 1
+            'ordem_exibicao' => 1,
         ]);
-
         Categoria::create([
             'nome' => 'Porções',
-            'descricao' => 'Porções Diversas',
+            'descricao' => 'Porções diversas',
             'ativo' => true,
-            'ordem_exibicao' => 2
+            'ordem_exibicao' => 2,
         ]);
-
         Categoria::create([
             'nome' => 'Bebidas',
-            'descricao' => 'Bebidas Diversas',
+            'descricao' => 'Bebidas diversas',
             'ativo' => true,
-            'ordem_exibicao' => 3
+            'ordem_exibicao' => 3,
         ]);
-
         Categoria::create([
             'nome' => 'Sobremesas',
-            'descricao' => 'Spbremesas Diversas',
+            'descricao' => 'Sobremesas diversas',
             'ativo' => true,
-            'ordem_exibicao' => 4
+            'ordem_exibicao' => 4,
         ]);
     }
 }

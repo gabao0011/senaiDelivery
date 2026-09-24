@@ -17,7 +17,6 @@ class User extends Authenticatable
     public const TIPO_ADMIN = 'admin';
     public const TIPO_CLIENTE = 'cliente';
 
-
     /**
      * The attributes that are mass assignable.
      *
@@ -31,11 +30,13 @@ class User extends Authenticatable
         'tipo'
     ];
 
-    public function isAdmin() {
+    public function isAdmin()
+    {
         return $this->tipo === self::TIPO_ADMIN;
     }
 
-    public function isCliente() {
+    public function isCliente()
+    {
         return $this->tipo === self::TIPO_CLIENTE;
     }
 

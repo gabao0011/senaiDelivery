@@ -2,7 +2,6 @@
 
 namespace App\Livewire\Dashboard;
 
-use App\Http\Middleware\AdminMiddleware;
 use App\Models\Categoria;
 use App\Models\Produto;
 use App\Models\User;
@@ -10,23 +9,29 @@ use Livewire\Component;
 
 class Index extends Component
 {
+
     public $totalAdministradores = 0;
     public $totalClientes = 0;
     public $totalCategorias = 0;
     public $totalProdutos = 0;
 
-    public $ultimosProdutos = [];
+    public $ultimosProdutos = 0;
 
-    public function mount()
-    {
-        //Contagem de Admins
+    public function mount(){
+        // contagem de administradores
         $this->totalAdministradores = User::where('tipo', User::TIPO_ADMIN)->count();
-        //Contagem de Clientes
+
+        // contagem de clientes
         $this->totalClientes = User::where('tipo', User::TIPO_CLIENTE)->count();
-        //Contagem de Categorias e Produtos
+
+        // contagem de categorias
         $this->totalCategorias = Categoria::count();
+
+        // contagem de produtos
         $this->totalProdutos = Produto::count();
 
+        
+        // últimos 5 produtos cadastrados
         $this->ultimosProdutos = Produto::with('categoria')->latest()->limit(5)->get();
     }
 

@@ -15,15 +15,16 @@ class Categoria extends Model
         'nome',
         'descricao',
         'ativo',
-        'ordem_exibicao'  
+        'ordem_exibicao'
     ];
-
-    #[Override]
+    
+    
     protected function casts()
     {
         return [
             'ativo' => 'boolean',
-            'ordem_exibicao' => 'integer'
+            'ordem_exibicao' => 'integer',
         ];
     }
+
 }

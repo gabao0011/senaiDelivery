@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('categoria_id')->unsigned()->nullable(false);
             $table->string('nome', 60)->nullable(false);
-            $table->text('descricao')->nullable(false);
+            $table->text('descricao')->nullable();
             $table->decimal('preco', 10, 2);
             $table->string('caminho_imagem')->nullable();
             $table->boolean('ativo')->default(true);

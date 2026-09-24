@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nome')->unique();
             $table->text('descricao')->nullable();
             $table->boolean('ativo')->default(true);
-            $table->unsignedBigInteger('ordem_exibicao')->default(0);
+            $table->unsignedInteger('ordem_exibicao')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

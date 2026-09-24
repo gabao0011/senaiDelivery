@@ -11,35 +11,38 @@ class Login extends Component
     public $password = '';
     public $remember = false;
 
-    public function login(){
+    public function login()
+    {
         $credentials = $this->validate([
-            'email' => ['required','email'],
+            'email' => ['required', 'email'],
             'password' => ['required'],
         ], [
-            'email.required' => 'O email é obrigatório',
-            'email.email' => 'Format de email incorreto',
-            'password.required' => 'A senha é obrigatória',
+            'email.required' => 'O email é obrigatório.',
+            'email.email' => 'Formato de email inválido.',
+            'password.required' => 'Senha obrigatória.',
         ]);
 
-        if(Auth::attempt($credentials, $this->remember)){
-            session()->flash('error', 'Email e senha inválidos');
+        if(!Auth::attempt($credentials, $this->remember)){
+            session()->flash('error', 'email e senha invalidos');
         }
 
         $user = Auth::user();
-
+        
         if(!$user->isAdmin()){
             Auth::logout();
 
             request()->session()->invalidate();
             request()->session()->regenerateToken();
 
-            session()->flash('error', 'Não autorizado');
+            session()->flash('error', 'não autorizado');
         }
 
         request()->session()->regenerate();
 
         return redirect()->route('dashboard');
     }
+          
+
 
     public function render()
     {
